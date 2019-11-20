@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -182,7 +182,7 @@ public class Math extends Calculation {
         for(int i = 1; i < data.length; ++i) {
             if (data[i] < min[0]) {
                 min[0] = data[i];
-                min[1] = (double)i;
+                min[1] = i;
             }
         }
         return min;
@@ -294,7 +294,7 @@ public class Math extends Calculation {
 
         for(int i = 0; i < n; ++i) {
             int index = random.nextInt(data.size());
-            result[i] = (Integer)data.get(index);
+            result[i] = data.get(index);
             data.remove(index);
         }
 

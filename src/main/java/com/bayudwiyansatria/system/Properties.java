@@ -22,9 +22,41 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria;
+package com.bayudwiyansatria.system;
 
-import com.bayudwiyansatria.system.Properties;
+import java.util.Map;
 
-public class Core extends Properties {
+public class Properties {
+	private String USERNAME;
+    
+	public JavaVirtualMachineProperties getJavaVirtualMachineProperties(){
+		return new JavaVirtualMachineProperties ();
+	}
+	
+	public OperationSystemProperties getOperationSystemProperties(){
+		return new OperationSystemProperties ();
+	}
+	
+	public Map<String, String> getEnvironmentVariable(){
+		return System.getenv ();
+	}
+	
+	public void showAllEnvironmentVariable(){
+		this.getEnvironmentVariable ().forEach ( (Keys, Values) -> {
+			System.out.println ( Keys + ":" + Values );
+		} );
+	}
+	
+	/* USER PROPERTIES */
+	public void setSystemUsername(String username){
+		this.USERNAME = username;
+	}
+	
+	public String getSystemUsername(){
+		if ( USERNAME == null ){
+			setSystemUsername ( System.getProperty("user.name") );
+		}
+		return USERNAME;
+	}
+	
 }

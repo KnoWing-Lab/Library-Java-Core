@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -145,7 +145,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        int[][] res = (int[][])null;
+        int[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -190,7 +190,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -300,7 +300,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -406,7 +406,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        int[][] res = (int[][])null;
+        int[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -513,7 +513,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -560,7 +560,7 @@ public class Calculation {
         double[] res = new double[l1];
 
         for(int c1 = 0; c1 < l1; ++c1) {
-            res[c1] = (double)(inA[c1] / inB);
+            res[c1] = inA[c1] / inB;
         }
 
         return res;
@@ -571,7 +571,7 @@ public class Calculation {
         double[] res = new double[l1];
         if (inA.length == inB.length) {
             for(int c1 = 0; c1 < l1; ++c1) {
-                res[c1] = (double)(inA[c1] / inB[c1]);
+                res[c1] = inA[c1] / inB[c1];
             }
         } else {
 
@@ -588,7 +588,7 @@ public class Calculation {
 
         for(int c1 = 0; c1 < l1; ++c1) {
             for(int c2 = 0; c2 < l2; ++c2) {
-                res[c1][c2] = (double)(inA[c1][c2] / inB);
+                res[c1][c2] = inA[c1][c2] / inB;
             }
         }
 
@@ -603,7 +603,7 @@ public class Calculation {
         if (l2 == l3) {
             for(int c1 = 0; c1 < l1; ++c1) {
                 for(int c2 = 0; c2 < l2; ++c2) {
-                    res[c1][c2] = (double)(inA[c1][c2] / inB[c2]);
+                    res[c1][c2] = inA[c1][c2] / inB[c2];
                 }
             }
         } else {
@@ -619,7 +619,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -628,7 +628,7 @@ public class Calculation {
 
                 for(c1 = 0; c1 < row2; ++c1) {
                     for(c2 = 0; c2 < col2; ++c2) {
-                        res[c1][c2] = (double)(inB[c1][c2] / inA[c1][0]);
+                        res[c1][c2] = inB[c1][c2] / inA[c1][0];
                     }
                 }
             } else {
@@ -641,7 +641,7 @@ public class Calculation {
 
                 for(c1 = 0; c1 < row1; ++c1) {
                     for(c2 = 0; c2 < col1; ++c2) {
-                        res[c1][c2] = (double)(inA[c1][c2] / inB[c1][0]);
+                        res[c1][c2] = inA[c1][c2] / inB[c1][0];
                     }
                 }
             } else {
@@ -653,7 +653,7 @@ public class Calculation {
 
             for(c1 = 0; c1 < row1; ++c1) {
                 for(c2 = 0; c2 < col1; ++c2) {
-                    res[c1][c2] = (double)(inA[c1][c2] / inB[c1][c2]);
+                    res[c1][c2] = inA[c1][c2] / inB[c1][c2];
                 }
             }
         }
@@ -1207,7 +1207,7 @@ public class Calculation {
         int l1 = inB.length;
         int l2 = inA.length;
         int l3 = inA[0].length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         if (l1 == l3) {
             res = new double[l2][l3];
 
@@ -1228,7 +1228,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -1314,7 +1314,7 @@ public class Calculation {
         int l1 = inB.length;
         int l2 = inA.length;
         int l3 = inA[0].length;
-        int[][] res = (int[][])null;
+        int[][] res = null;
         if (l1 == l3) {
             res = new int[l2][l3];
 
@@ -1335,7 +1335,7 @@ public class Calculation {
         int col2 = inB[0].length;
         int row1 = inA.length;
         int row2 = inB.length;
-        int[][] res = (int[][])null;
+        int[][] res = null;
         int c1;
         int c2;
         if (col1 == 1) {
@@ -1379,7 +1379,6 @@ public class Calculation {
         double[] res = null;
         int colB = inB[0].length;
         int colA = inA.length;
-        boolean rowA = true;
         int rowB = inB.length;
         int count = colA;
         if (colA == rowB) {
@@ -1400,7 +1399,7 @@ public class Calculation {
     }
 
     public double[][] vectorMultiplication(double[][] inA, double[][] inB) {
-        double[][] res = (double[][])null;
+        double[][] res = null;
         int colA = inA[0].length;
         int rowA = inA.length;
         int colB = inB[0].length;
@@ -1455,7 +1454,6 @@ public class Calculation {
         int[] res = null;
         int colB = inB[0].length;
         int colA = inA.length;
-        boolean rowA = true;
         int rowB = inB.length;
         int count = colA;
         if (colA == rowB) {
@@ -1476,7 +1474,7 @@ public class Calculation {
     }
 
     public int[][] vectorMultiplication(int[][] inA, int[][] inB) {
-        int[][] res = (int[][])null;
+        int[][] res = null;
         int colA = inA[0].length;
         int rowA = inA.length;
         int colB = inB[0].length;

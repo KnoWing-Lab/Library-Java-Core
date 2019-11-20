@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -24,10 +24,7 @@
 
 package com.bayudwiyansatria.utils;
 
-import javax.lang.model.element.Element;
-import java.io.ObjectInputStream;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Utils {
     public void warning(String error_message) {
@@ -35,18 +32,18 @@ public class Utils {
         System.exit(1);
     }
 
-    public String buildArgument(String[] array, String splitter){
-        String argument = array[0];
+    public String buildArgument( String[] array, String splitter){
+        StringBuilder argument = new StringBuilder ( array[ 0 ] );
         for(int i=1; i<array.length; i++){
-            argument = argument+""+splitter+""+array[i];
+            argument.append ( splitter ).append ( array[ i ] );
         }
-        return argument;
+        return argument.toString ( );
     }
 
     public String buildDependencyArgument(String[][] dependency, String splitter){
-        String argument = "";
-        for(int i=0; i<dependency.length; i++){
-            argument = argument+""+splitter+""+buildArgument(dependency[i],":");
+        StringBuilder argument = new StringBuilder ( );
+        for ( String[] strings : dependency ) {
+            argument.append ( splitter ).append ( buildArgument ( strings , ":" ) );
         }
         return argument.substring(1);
     }
@@ -54,8 +51,8 @@ public class Utils {
     public int[] getUnique(int[] data) {
         SortedSet<Integer> set = new TreeSet<>();
         int[] dataLabel = new int[data.length];
-        for(int i = 0; i < data.length; ++i) {
-            set.add(new Integer(data[i]));
+        for ( int datum : data ) {
+            set.add ( datum );
         }
         Iterator<?> element = set.iterator();
         int i;
@@ -68,12 +65,9 @@ public class Utils {
         return newData;
     }
 
-    public String[] getUnique(String[] data) {
-        SortedSet<String> set = new TreeSet<>();
+    public String[] getUnique ( String[] data ) {
         String[] dataLabel = new String[data.length];
-        for(int i = 0; i < data.length; ++i) {
-            set.add(new String(data[i]));
-        }
+        SortedSet < String > set = new TreeSet <> ( Arrays.asList ( data ) );
         Iterator<?> element = set.iterator();
         int i;
         for(i = 0; element.hasNext(); ++i) {
@@ -89,27 +83,26 @@ public class Utils {
         int[] output = new int[0];
         boolean ok;
 
-        for(int i = 0; i < data.length; ++i) {
+        for(int i = 0; i < data.length; ++i){
             ok = false;
             byte bytes = -1;
             switch(opr.hashCode()) {
-                case 60: if ("<".equals(opr)) { bytes = 1; }
-                case 61: if ("=".equals(opr)) { bytes = 0; }
-                case 62: if (">".equals(opr)) { bytes = 3; }
-                case 1084: if ("!=".equals(opr)) { bytes = 5; }
-                case 1921: if ("<=".equals(opr)) { bytes = 2; }
+                case 60: if ("<".equals(opr)) { bytes = 1; } break;
+                case 61: if ("=".equals(opr)) { bytes = 0; } break;
+                case 62: if (">".equals(opr)) { bytes = 3; } break;
+                case 1084: if ("!=".equals(opr)) { bytes = 5; } break;
+                case 1921: if ("<=".equals(opr)) { bytes = 2;  } break;
                 case 1983: if (">=".equals(opr)) { bytes = 4; }
             }
 
             switch(bytes) {
-                case 0: if (data[i] == val) { ok = true; }
-                case 1: if (data[i] < val) { ok = true; }
-                case 2: if (data[i] <= val) { ok = true; }
-                case 3: if (data[i] > val) { ok = true; }
-                case 4: if (data[i] >= val) { ok = true; }
+                case 0: if (data[i] == val) { ok = true;  } break;
+                case 1: if (data[i] < val) { ok = true;  } break;
+                case 2: if (data[i] <= val) { ok = true;  } break;
+                case 3: if (data[i] > val) { ok = true;  } break;
+                case 4: if (data[i] >= val) { ok = true;  } break;
                 case 5: if (data[i] != val) { ok = true; }
             }
-
             if (ok) {
                 if (find == 0) {
                     ++find;
@@ -137,23 +130,23 @@ public class Utils {
             ok = false;
             byte bytes = -1;
             switch(opr.hashCode()) {
-                case 60: if ("<".equals(opr)) { bytes = 1; }
-                case 61: if ("=".equals(opr)) { bytes = 0; }
-                case 62: if (">".equals(opr)) { bytes = 3; }
-                case 1084: if ("!=".equals(opr)) { bytes = 5; }
-                case 1921: if ("<=".equals(opr)) { bytes = 2; }
+                case 60: if ("<".equals(opr)) { bytes = 1; } break;
+                case 61: if ("=".equals(opr)) { bytes = 0;} break;
+                case 62: if (">".equals(opr)) { bytes = 3;} break;
+                case 1084: if ("!=".equals(opr)) { bytes = 5; } break;
+                case 1921: if ("<=".equals(opr)) { bytes = 2;} break;
                 case 1983: if (">=".equals(opr)) { bytes = 4; }
             }
 
             switch(bytes) {
-                case 0: if (data[i] == val) { ok = true; }
-                case 1: if (data[i] < val) { ok = true; }
-                case 2: if (data[i] <= val) { ok = true; }
-                case 3: if (data[i] > val) { ok = true; }
-                case 4: if (data[i] >= val) { ok = true; }
+                case 0: if (data[i] == val) { ok = true; } break;
+                case 1: if (data[i] < val) { ok = true; } break;
+                case 2: if (data[i] <= val) { ok = true; } break;
+                case 3: if (data[i] > val) { ok = true; } break;
+                case 4: if (data[i] >= val) { ok = true; } break;
                 case 5: if (data[i] != val) { ok = true; }
             }
-
+            
             if (ok) {
                 if (find == 0) {
                     ++find;
@@ -192,26 +185,6 @@ public class Utils {
         return newData;
     }
 
-    public List<Integer> int_to_list(int[][] data){
-    	List<Integer> list = null;
-    	for(int i=0; i<data.length; i++){
-            for(int j = 0; j < data[0].length; ++j) {
-	            list.add(data[i][j]);
-            }
-	    }
-        return list;
-    }
-
-    public ArrayList<Integer> int_to_arraylist(int[][] data){
-    	ArrayList<Integer> list = null;
-    	for (int i=0; i<data.length; i++){
-    		for(int j = 0; j < data[0].length; ++j) {
-	            list.add(data[i][j]);
-            }
-	    }
-    	return list;
-    }
-
     public int[] double_to_int(double[] data) {
         int[] newData = new int[data.length];
         for(int i = 0; i < data.length; ++i) {
@@ -221,17 +194,17 @@ public class Utils {
     }
 
     public int[][] double_to_int(double[][] data) {
-        int dimention = data[0].length;
-        int[][] newData = new int[data.length][dimention];
+        int dimension = data[0].length;
+        int[][] newData = new int[data.length][dimension];
         for(int i = 0; i < data.length; ++i) {
-            for(int j = 0; j < dimention; ++j) {
+            for(int j = 0; j < dimension; ++j) {
                 newData[i][j] = (int)data[i][j];
             }
         }
         return newData;
     }
 
-    public int[] String_to_int(String[] data) {
+    public int[] string_to_int(String[] data) {
         int[] newData = new int[data.length];
         for(int i = 0; i < data.length; ++i) {
             newData[i] = Integer.parseInt(data[i]);
@@ -239,7 +212,7 @@ public class Utils {
         return newData;
     }
 
-    public int[][] String_to_int(String[][] data) {
+    public int[][] string_to_int(String[][] data) {
         int[][] newData = new int[data.length][data[0].length];
         for(int i = 0; i < data.length; ++i) {
             for(int j = 0; j < data[0].length; ++j) {
@@ -249,7 +222,7 @@ public class Utils {
         return newData;
     }
 
-    public double[] String_to_double(String[] data) {
+    public double[] string_to_double(String[] data) {
         double[] newData = new double[data.length];
         for(int i = 0; i < data.length; ++i) {
             newData[i] = Double.parseDouble(data[i]);
@@ -257,7 +230,7 @@ public class Utils {
         return newData;
     }
 
-    public double[][] String_to_double(String[][] data) {
+    public double[][] string_to_double(String[][] data) {
         double[][] newData = new double[data.length][data[0].length];
         for(int i = 0; i < data.length; ++i) {
             for(int j = 0; j < data[0].length; ++j) {
@@ -267,7 +240,7 @@ public class Utils {
         return newData;
     }
 
-    public int[] String_to_categorical(String[] data){
+    public int[] string_to_categorical(String[] data){
         int[] newData = new int[data.length];
         String[] unique = getUnique(data);
 
@@ -287,52 +260,26 @@ public class Utils {
         return newData;
     }
 
-    public int[][] String_to_categorical(String[][] data){
+    public int[][] string_to_categorical(String[][] data){
         String[][] transposeData = new com.bayudwiyansatria.mat.Mat().transposeMatrix(data);
         int[][] newData = new int[transposeData.length][transposeData[0].length];
         for(int i=0; i< transposeData.length; i++){
-            newData[i] = String_to_categorical(transposeData[i]);
+            newData[i] = string_to_categorical(transposeData[i]);
         }
         return newData;
     }
-
-    public List<String> String_to_list(String[][] data){
-    	List<String> list = null;
-    	for(int i=0; i<data.length; i++){
-            for(int j = 0; j < data[0].length; ++j) {
-	            list.add(data[i][j]);
-            }
-	    }
-        return list;
-    }
-
-    public ArrayList<ArrayList<String>> String_to_arraylist(String[][] data){
-    	ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>(data.length);
-    	for (int i=0; i<data.length; i++){
-    	    ArrayList<String> sublist = new ArrayList<String>();
-    		for(int j=0; i<data[0].length; i++){
-    		    sublist.add(data[i][j]);
-		    }
-    	    list.add(sublist);
-	    }
-    	return list;
-    }
-
-    public List<ArrayList> Bytes_to_arraylist(ObjectInputStream data){
-        List<ArrayList>newData = null;
-        try {
-            Object obj = data.readObject();
-            while(obj != null){
-                newData.add((ArrayList) newData);
-            }
-        } catch (Exception except){
-            warning(except.toString());
+    
+    public static String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for ( byte aByte : bytes ) {
+            int intVal = aByte & 0xff;
+            if ( intVal < 0x10 ) sb.append ( "0" );
+            sb.append ( Integer.toHexString ( intVal ).toUpperCase ( ) );
         }
-        return newData;
+        return sb.toString();
     }
-
-
-    public String[][] List_to_String(ArrayList<String[]> data){
+    
+    public String[][] list_to_String(ArrayList<String[]> data){
         String[][] newData  = new String[data.size()][data.get(0).length];
         for(int i=0; i<data.size();i++){
             for(int j=0; j<data.get(0).length; j++){

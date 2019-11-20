@@ -1,35 +1,38 @@
 <p align="center">
-	<a href="https://bayudwiyansatria.github.io/Development-And-Operations/">
-		<img src="https://cdn.bayudwiyansatria.com/assets/logo-full.png" width="100%" />
-	</a>
-	<br>
+<a href="https://bayudwiyansatria.github.io/Development-And-Operations/">
+<img src="https://cdn.bayudwiyansatria.com/assets/logo-full.png" width="100%" />
+</a>
+<br>
 </p>
 <p align="center">
-	<a href="#">
-		<img src="https://img.shields.io/badge/%20Platforms-Java-blue.svg?style=flat-square" alt="Platforms" />
-	</a>
-	<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/LICENSE">
-		<img src="https://img.shields.io/badge/%20Licence-MIT-green.svg?style=flat-square" alt="license" />
-	</a>
+<a href="#">
+<img src="https://img.shields.io/badge/%20Platforms-Java-blue.svg?style=flat-square" alt="Platforms" />
+</a>
+<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/LICENSE">
+<img src="https://img.shields.io/badge/%20Licence-MIT-green.svg?style=flat-square" alt="license" />
+</a>
 </p>
 <p align="center">
-	<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/CODE_OF_CONDUCT.md">
-		<img src="https://img.shields.io/badge/Community-Code%20of%20Conduct-orange.svg?style=flat-squre" alt="Code of Conduct" />
-	</a>
-	<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/SUPPORT.md">
-		<img src="https://img.shields.io/badge/Community-Support-red.svg?style=flat-square" alt="Support" />
-	</a>
-	<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/CONTRIBUTING.md">
-		<img src="https://img.shields.io/badge/%20Community-Contribution-yellow.svg?style=flat-square" alt="Contribution" />
-	</a>
+<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/CODE_OF_CONDUCT.md">
+<img src="https://img.shields.io/badge/Community-Code%20of%20Conduct-orange.svg?style=flat-squre" alt="Code of Conduct" />
+</a>
+<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/SUPPORT.md">
+<img src="https://img.shields.io/badge/Community-Support-red.svg?style=flat-square" alt="Support" />
+</a>
+<a href="https://github.com/bayudwiyansatria/Development-And-Operations/blob/master/CONTRIBUTING.md">
+<img src="https://img.shields.io/badge/%20Community-Contribution-yellow.svg?style=flat-square" alt="Contribution" />
+</a>
 </p>
 <hr>
 
 # Bayu Dwiyan Satria - Core
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+
 ![Github Actions](https://github.com/bayudwiyansatria/Library-Java-Core/workflows/Github%20Action/badge.svg)
 [![Build Status](https://dev.azure.com/bayudwiyansatria/Libraries/_apis/build/status/Library%20Java%20Core?branchName=master)](https://dev.azure.com/bayudwiyansatria/Libraries/_build/latest?definitionId=6&branchName=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2045f7bf665040aba79cd79f03aeff7c)](https://www.codacy.com/manual/bayudwiyansatria/Library-Java-Core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bayudwiyansatria/Library-Java-Core&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/2045f7bf665040aba79cd79f03aeff7c)](https://www.codacy.com/manual/bayudwiyansatria/Library-Java-Core?utm_source=github.com&utm_medium=referral&utm_content=bayudwiyansatria/Library-Java-Core&utm_campaign=Badge_Coverage)
 
 Core of Bayu Dwiyan Satria Project Framework.
 
@@ -49,17 +52,13 @@ Core of Bayu Dwiyan Satria Project Framework.
 
 ## Dependencies
 
-Dependencies Repository : https://search.maven.org/
+Dependencies Repository : [https://search.maven.org/](https://search.maven.org/)
 
 **Maven Central** :
 
 |  Name     |   Group   | Artifact  | Version   |
 | -----     |   -----   | -----     | -----     |
 | [JUnit](https://search.maven.org/artifact/junit/junit)                        | junit         | junit         | 4.12
-| [Slf4j](https://search.maven.org/artifact/org.slf4j/slf4j-simple)             | org.slf4j     | slf4j-simple  | 1.7.25
-| [Slf4j](https://search.maven.org/artifact/org.slf4j/slf4j-api)                | org.slf4j     | slf4j-api     | 1.7.25
-| [Ham Crest](https://search.maven.org/artifact/org.hamcrest/hamcrest-core)     | org.hamcrest  | hamcrest-core | 1.3
-| [Ham Crest](https://search.maven.org/artifact/org.hamcrest/hamcrest-library)  | org.hamcrest  | hamcrest-library | 1.3
 
 ## Installation
 
@@ -82,7 +81,7 @@ Configure the following dependency in the pom file:
 Configure the following dependency in the build.gradle file:
 
 ```properties
-implementation 'com.bayudwiyansatria:core:${bayudwiyansatria.core.version}'
+implementation='com.bayudwiyansatria:core:${bayudwiyansatria.core.version}'
 ```
 
 SBT
@@ -106,6 +105,7 @@ For more information see : [The Central Repository](https://search.maven.org/art
 - *M2 1.1.5* : **2019, Sept**. (Available On Maven Central)
 - *RC2 1.1.6* : **2019, Sept**. (Available On Maven Central)
 - *GA 1.1.7* : **2019, Sept**. (Available On Maven Central)
+- *RC3 1.1.8* : **2019, Nov**.
 
 ## Contributing
 

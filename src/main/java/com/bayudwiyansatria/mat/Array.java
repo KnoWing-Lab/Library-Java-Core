@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -211,37 +211,7 @@ public class Array extends Vector {
     }
 
     public int[][] sortData(int[] data, String mode) {
-        int[][] newData = new int[2][data.length];
-        String dataSort = mode.toLowerCase();
-        int[] ar = this.copyArray(data);
-        Arrays.sort(ar);
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int i = 0; i < data.length; ++i) {
-            map.put(i, data[i]);
-        }
-        Map<?, ?> sortedMap = sortByComparator(map);
-        int p;
-        Iterator<?> iterator;
-        Map.Entry<?,?> entry;
-        if (dataSort.equals("asc")) {
-            p = 0;
-            for(iterator = sortedMap.entrySet().iterator(); iterator.hasNext(); ++p) {
-                entry = (Map.Entry<?,?>) iterator.next();
-                newData[1][p] = (Integer)entry.getKey();
-                newData[0][p] = (Integer)entry.getValue();
-            }
-        } else if (dataSort.equals("desc")) {
-            p = data.length - 1;
-
-            for(iterator = sortedMap.entrySet().iterator(); iterator.hasNext(); --p) {
-                entry = (Map.Entry<?,?>)iterator.next();
-                newData[1][p] = (Integer)entry.getKey();
-                newData[0][p] = (Integer)entry.getValue();
-            }
-        } else {
-            System.out.println("Mode incorrect");
-        }
-        return newData;
+        return new com.bayudwiyansatria.utils.Utils().double_to_int(sortData(new com.bayudwiyansatria.utils.Utils().int_to_double(data)));
     }
 
     public double[][] sortData(double[] data, String mode) {
@@ -253,7 +223,7 @@ public class Array extends Vector {
         for(int i = 0; i < data.length; ++i) {
             map.put(i, data[i]);
         }
-        Map<?, ?> sortedMap = sortByComparator(map);
+        Map<Integer, Double> sortedMap = sortByComparator(map);
         int p;
         Iterator<?> iterator;
         Map.Entry<?,?> entry;
@@ -277,20 +247,11 @@ public class Array extends Vector {
         return output;
     }
 
-    public static Map sortByComparator(Map unsortMap) {
-        List list = new LinkedList<>(unsortMap.entrySet());
-        Collections.sort(list, new Comparator() {
-            public int compare(Object o1, Object o2) {
-                return ((Comparable)((Map.Entry)((Map.Entry)o1)).getValue()).compareTo(((Map.Entry)((Map.Entry)o2)).getValue());
-            }
-        });
-        Map sortedMap = new LinkedHashMap();
-        Iterator iterator = list.iterator();
-
-        while(iterator.hasNext()) {
-            Map.Entry<?,?> entry = (Map.Entry<?,?>)iterator.next();
-            sortedMap.put(entry.getKey(), entry.getValue());
-        }
+    public static Map<Integer,Double> sortByComparator(Map<Integer, Double> unsortMap) {
+        List<Map.Entry<Integer, Double>> list = new LinkedList<Map.Entry<Integer, Double>>(unsortMap.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<Integer, Double>>() { public int compare(Map.Entry<Integer, Double> o1, Map.Entry<Integer, Double> o2) { return (o1.getValue()).compareTo(o2.getValue());}});
+        Map<Integer, Double> sortedMap = new LinkedHashMap<Integer, Double>();
+        for (Map.Entry<Integer, Double> entry : list) { sortedMap.put(entry.getKey(), entry.getValue());}
         return sortedMap;
     }
 
@@ -384,7 +345,7 @@ public class Array extends Vector {
 
     public int[][] mergeArrayRow(int[] data1, int[][] data2) {
         int dimension = data2[0].length;
-        int[][] newArray = (int[][])null;
+        int[][] newArray = null;
         if (dimension == data1.length) {
             newArray = this.initArray(data2.length + 1, dimension, 0);
 
@@ -407,7 +368,7 @@ public class Array extends Vector {
 
     public double[][] mergeArrayRow(double[] data1, double[][] data2) {
         int dimension = data2[0].length;
-        double[][] newArray = (double[][])null;
+        double[][] newArray = null;
         if (dimension == data1.length) {
             newArray = this.initArray(data2.length + 1, dimension, 0.0);
 
@@ -430,7 +391,7 @@ public class Array extends Vector {
 
     public int[][] mergeArrayColumn(int[] data1, int[][] data2) {
         int dimension = data2[0].length;
-        int[][] newArray = (int[][])null;
+        int[][] newArray = null;
         if (data1.length == data2.length) {
             newArray = this.initArray(data1.length, dimension + 1, 0);
 
@@ -450,7 +411,7 @@ public class Array extends Vector {
 
     public double[][] mergeArrayColumn(double[] data1, double[][] data2) {
         int dimension = data2[0].length;
-        double[][] newArray = (double[][])null;
+        double[][] newArray = null;
         if (data1.length == data2.length) {
             newArray = this.initArray(data1.length, dimension + 1, 0.0);
 
@@ -469,7 +430,7 @@ public class Array extends Vector {
     }
 
     public int[][] mergeArrayRow(int[][] data1, int[] data2) {
-        int[][] newArray = (int[][])null;
+        int[][] newArray = null;
         if (data1[0].length == data2.length) {
             newArray = this.initArray(data1.length + 1, data1[0].length, 0);
 
@@ -491,7 +452,7 @@ public class Array extends Vector {
     }
 
     public double[][] mergeArrayRow(double[][] data1, double[] data2) {
-        double[][] newArray = (double[][])null;
+        double[][] newArray = null;
         if (data1[0].length == data2.length) {
             newArray = this.initArray(data1.length + 1, data1[0].length, 0.0);
 
@@ -513,7 +474,7 @@ public class Array extends Vector {
     }
 
     public int[][] mergeArrayColumn(int[][] data1, int[] data2) {
-        int[][] newArray = (int[][])null;
+        int[][] newArray = null;
         if (data1.length == data2.length) {
             newArray = this.initArray(data1.length, data1[0].length + 1, 0);
 
@@ -532,7 +493,7 @@ public class Array extends Vector {
     }
 
     public double[][] mergeArrayColumn(double[][] data1, double[] data2) {
-        double[][] newArray = (double[][])null;
+        double[][] newArray = null;
         if (data1.length == data2.length) {
             newArray = this.initArray(data1.length, data1[0].length + 1, 0.0);
 
@@ -719,7 +680,7 @@ public class Array extends Vector {
     }
 
     public int[][] initArray(int rows, int cols, int init_value) {
-        int[][] newArray = (int[][])null;
+        int[][] newArray = null;
         if (rows > 0 && cols > 0) {
             newArray = new int[rows][cols];
 
@@ -736,7 +697,7 @@ public class Array extends Vector {
     }
 
     public double[][] initArray(int rows, int cols, double init_value) {
-        double[][] newArray = (double[][])null;
+        double[][] newArray = null;
         if (rows > 0 && cols > 0) {
             newArray = new double[rows][cols];
 
@@ -850,19 +811,17 @@ public class Array extends Vector {
 
     public int[] makeArray_1D_int(String data) {
         data = data.replace(" ", "");
-        int length = data.length();
         String tmp = this.cleanArrIn(data);
         String[] split = tmp.split(",");
-        int[] newData = new com.bayudwiyansatria.utils.Utils().String_to_int(split);
+        int[] newData = new com.bayudwiyansatria.utils.Utils().string_to_int (split);
         return newData;
     }
 
     public double[] makeArray_1D_double(String data) {
         data = data.replace(" ", "");
-        int length = data.length();
         String tmp = this.cleanArrIn(data);
         String[] split = tmp.split(",");
-        double[] newData = new com.bayudwiyansatria.utils.Utils().String_to_double(split);
+        double[] newData = new com.bayudwiyansatria.utils.Utils().string_to_double (split);
         return newData;
     }
 

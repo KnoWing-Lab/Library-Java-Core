@@ -22,9 +22,3 @@
  * SOFTWARE.
  */
 
-package com.bayudwiyansatria;
-
-import com.bayudwiyansatria.system.Properties;
-
-public class Core extends Properties {
-}

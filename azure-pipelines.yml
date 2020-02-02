@@ -1,8 +1,16 @@
-name: '1.1.8'
+# CI/CD
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+
+# Author : Bayu Dwiyan Satria
+# Contact : bayudwiyansatria@gmail.com / +62-823-9602-9583
+# Site : https://www.bayudwiyansatria.com
+
+name: 'Library-Java-Core'
 
 trigger: none
 pr:
-- release/*
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -12,27 +20,16 @@ steps:
   displayName: 'Maven Build $(Build.BuildNumber)'
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'package'
-    publishJUnitResults: false
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testRunTitle: 'Maven Test'
+    codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    mavenOptions: '-Xmx1024m'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
+    effectivePomSkip: false
     sonarQubeRunAnalysis: false
-    
-- task: GitHubRelease@1
-  displayName: 'Create GitHub Release'
-  inputs:
-    gitHubConnection: 'bayudwiyansatria'
-    repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'userSpecifiedTag'
-    tag: 'v$(Build.BuildNumber)'
-    title: '$(Build.BuildNumber)'
-    releaseNotesFilePath: 'README.md'
-    isPreRelease: true
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    checkStyleRunAnalysis: true
+    pmdRunAnalysis: true
+    findBugsRunAnalysis: true
